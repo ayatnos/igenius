@@ -1,12 +1,11 @@
-
 @extends('layouts.app')
+@section('content')
 <style>
 ul.student-info {display: inline-block;list-style:none;}
 ul.student-info li{margin: 15px;}
 input{display: block;}
 button{background-color: lightblue;}
 </style>
-@section('content')
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
