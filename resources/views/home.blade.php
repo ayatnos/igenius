@@ -1,4 +1,3 @@
-
 @extends('layouts.app')
 <style>
 ul.student-info {display: inline-block;list-style:none;}
