@@ -10,10 +10,10 @@ form input{display:inline;margin:10px;margin-bottom: 20px;}
         <div style="background-color:#ffffff;padding:10px;border-radius:10px;">
             <form action="corseSelect" method="post">
             นักเรียน
-            <select name="std" id="std" style="width:200px;margin:10px;padding:3px;">
+            <select name="std" id="std" style="width:300px;margin:10px;padding:3px;">
             @foreach($students as $row)
 
-                  <option value= "{{ $row->std_id }}">รหัส: {{$row->std_id}} ชื่อ: {{$row->std_name}}</option>
+                  <option value= "{{ $row->std_id }}">{{$row->std_name}} {{ $row->std_lastname }}( {{ $row->std_nickname }} )</option>
 
             @endforeach
             </select>

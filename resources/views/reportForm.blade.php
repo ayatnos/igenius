@@ -20,7 +20,7 @@ tr td{padding: 10px;}
                     <option selected>กรุณาเลือก</option>
             @foreach($students as $row)
 
-                  <option value= "{{ $row->std_id }}">{{ $row->std_name }}  </option>
+                  <option value= "{{ $row->std_id }}">{{ $row->std_name }} {{$row->std_lastname}}({{$row->std_nickname}})  </option>
 
             @endforeach
             </select>

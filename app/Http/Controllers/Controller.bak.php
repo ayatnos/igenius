@@ -139,25 +139,15 @@ return redirect('corseSelect');
  }
   function selectStdClass ()
  {
-
    $teacher = DB::table('teacher')->get();
-
    $study = DB::table('study')
               ->join('student','student.std_id', '=' ,'study.std_id')
               ->get();
-
-
-
    return view('classRecord',['studyClasses'=>$study,'teachers'=>$teacher]);
-
-
  }
 
   function insertClassRecord(Request $r)
  {
-	print_r($_POST);
-
-
    $stdId = $r->input('classStdId');
    $corseName = DB::table('study')->select('corse_name')->where('std_id','=',$stdId)->get();
    $corse = '';
@@ -190,17 +180,17 @@ return redirect('corseSelect');
     );
 
     DB::table('class')->insertGetId($data);
-	
+
       return redirect('classRecord')->with('messege','Sucsess');
-}
- 
+
+ }
 
 
    function insStdReport(Request $req)
  {
    $getId = $req->input('getId');
    $student = DB::table('student')->get();
-   $getstdInfo = DB::table('student')->where('std_id','=', $getId)->orderBy('std_nickname','asc')->get();//ข้อมูลนักเรียน
+   $getstdInfo = DB::table('student')->where('std_id','=', $getId)->get();//ข้อมูลนักเรียน
    $getClass = DB::table('class')->where('std_id','=', $getId)->get();//ข้อมูลเรียน
 
 

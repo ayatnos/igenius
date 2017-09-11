@@ -1,24 +1,29 @@
+﻿
 @extends('layouts.app')
+
 <style>
 form input{display:inline;margin:10px;margin-bottom: 20px;}
 </style>
-
 @section('content')
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
-          <form action="classRecord" method="post" >
+ <form action="classRecord" method="post">
+                                                                                           
         <div style="background-color:#ffffff;padding:10px;border-radius:10px;">
 
           นักเรียน
 
-          <select name="classStdId" style="width:300px;padding:5px; margin:10px;">
+          <select name="classStdId" style="padding:5px; margin:10px;">
             @foreach($studyClasses as $r)
-            <option value="{{ $r->std_id }}"> {{$r->std_name}} corse {{$r->corse_name}}</option>
+            <option value="{{ $r->std_id }}"> {{$r->std_name}} {{ $r->std_lastname }} ({{ $r->std_nickname }})  </option>
             @endforeach
             </select>
-          </div><br>
-          <div style="background-color:#ffffff;padding:10px;border-radius:10px;">
+      </div>
+      <br>
+      <div style="background-color:#ffffff;padding:10px;border-radius:10px;">
+
+         
               วันที่
               <input type="date" name="classDate" required>
               เวลา
@@ -38,11 +43,12 @@ form input{display:inline;margin:10px;margin-bottom: 20px;}
               </select>
               <br><br>
               <input type="hidden" name="_token" value="{{ csrf_token() }}">
-              <input type="submit" name="submit" value="บันทึก" class="btn btn-primary">
+              <input type="submit" name="save" value="บันทึก" class="btn btn-primary">
+
             </form>
 
         </div>
       </div>
     </div>
   </div>
-  @endsection
+@endsection
