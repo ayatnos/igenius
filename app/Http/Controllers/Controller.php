@@ -145,24 +145,38 @@ return redirect('corseSelect');
    return view('classRecord',['studyClasses'=>$study,'teachers'=>$teacher]);
  }
 
- public function insertClassRecord(Request $r)
+   function insertClassRecord(Request $r)
  {
-   $stdId = $r->input('classStdId');
-   $corseName = DB::table('study')->select('corse_name')->where('std_id','=',$stdId)->get();
-   $corse = '';
-   foreach($corseName as $row){
-     $corse = $row->corse_name;
-   }
-   $classNum = DB::table('class')->select('class_num')->where('std_id','=',$stdId)->get();
-   $num ='1';
-   foreach ($classNum as $row){
 
-     if(!empty($row->class_num)){
-       $num = $row->class_num + 1;
-     }else{
-       $num = '1';
-     }
+
+   foreach ($_POST as $key => $value) {
    }
+
+   if(!empty($key == 'search')){
+ $stdIdSearch = $r->input('classStdId');
+
+     $stdStudy = DB::table('study')->where('std_id','=', $stdIdSearch)->get();
+     $std = DB::table('student')->where('std_id','=',$stdIdSearch)->get();
+     $teacher = DB::table('teacher')->get();
+
+     $study = DB::table('study')
+                ->join('student','student.std_id', '=' ,'study.std_id')
+                ->get();
+    $getClass = DB::table('class')->where('std_id','=',$stdIdSearch)->get();
+    $getNum = DB::table('class')->where('std_id','=',$stdIdSearch)->max('class_num');
+
+if(!empty($getNum)){
+  $getNum+=1;
+}else {
+  $getNum = 1;
+}
+
+    return view('classRecord',['getNums'=>$getNum,'getClasses'=>$getClass,'stds'=> $std,'studyClasses'=>$study,'teachers'=>$teacher,'stdStudys'=>$stdStudy])->with('message','hello wold');
+
+   }else if(!empty($key == 'save')){
+     $stdId = $r->input('stdId');
+     $classNum = $r->input('classNum');
+     $corse = $r->input('corse');
    $classDate = $r->input('classDate');
    $classTime = $r->input('classTime');
    $classSubject = $r->input('classSubject');
@@ -171,7 +185,7 @@ return redirect('corseSelect');
    $data  = array(
      'std_id' => $stdId,
       'corse_name' => $corse,
-      'class_num' => $num,
+      'class_num' => $classNum,
       'class_date' => $classDate,
       'class_time' => $classTime,
       'class_subject' => $classSubject,
@@ -180,9 +194,10 @@ return redirect('corseSelect');
 
     DB::table('class')->insertGetId($data);
 
-      return redirect('classRecord')->with('messege','Sucsess');
-
+      return redirect('classRecord')->with('message','Sucsess');
+    }
  }
+
 
 
   public function insStdReport(Request $req)
