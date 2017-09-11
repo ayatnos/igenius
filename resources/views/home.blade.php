@@ -14,29 +14,29 @@ button{background-color: lightblue;}
                 <div class="panel-heading">บันทึกนักเรียน</div>
 
                 <div class="panel-body">
-                    <a href="/studentForm">STUDENT FORM</a>
+                    <a href="{{ url('/studentForm')}}">STUDENT FORM</a>
                 </div>
                 <div class="panel-body">
-                    <a href="/corseSelect">CORSE SELECT</a>
+                    <a href="{{ url('/corseSelect')}}">CORSE SELECT</a>
                 </div>
                 <div class="panel-body">
-                    <a href="/classRecord">CLASS RECORD</a>
+                    <a href="{{ url('/classRecord')}}">CLASS RECORD</a>
                 </div>
 
               </div>
               <div style="float:left;width:32%;">
                 <div class="panel-heading">บันทึกผู้สอน</div>
                 <div class="panel-body">
-                    <a href="/corseForm">CORSE FORM</a>
+                    <a href="{{ url('/corseForm')}}">CORSE FORM</a>
                 </div>
                 <div class="panel-body">
-                    <a href="/teacherForm">TEACHER FORM</a>
+                    <a href="{{ url('/teacherForm')}}">TEACHER FORM</a>
                 </div>
               </div>
               <div style="float:left;width:32%;">
                 <div class="panel-heading">รายงาน</div>
               <div class="panel-body">
-                  <a href="/reportForm">CLASSTIME REPORT</a>
+                  <a href="{{ url('/reportForm"')}}>CLASSTIME REPORT</a>
               </div>
               </div>
             </div>
