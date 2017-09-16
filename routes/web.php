@@ -68,5 +68,5 @@ Route::get('reportForm', function(){
   return view('reportForm');
 });
 //Route::get('reportForm','Controller@selectReport');
-Route::post('reportForm','Controller@insStdReport');
-Route::get('reportForm','Controller@insStdReport');
+Route::post('reportForm','reportController@searchInfo');
+Route::get('reportForm','reportController@searchInfo');
