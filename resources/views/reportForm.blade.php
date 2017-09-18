@@ -13,52 +13,44 @@ tr td{padding: 10px;}
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
           <div style="background-color:#ffffff;padding:10px;border-radius:10px;">
-
           <form action="reportForm" method="post" >
-            <input type="text" name="insNickname" size="50">
+            ชื่อนักเรียน
+            <!--<input type="text" name="getId" style="display:inline;" required>-->
+            <select name="getId" id="std" style="width:200px;margin:10px;padding:3px;">
+                    <option selected>กรุณาเลือก</option>
+            @foreach($students as $row)
+
+                  <option value= "{{ $row->std_id }}">{{ $row->std_name }}  </option>
+
+            @endforeach
+            </select>
 
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
-            <input type="submit" name="search" value="ค้นหา" class="btn btn-primary">
+            <input type="submit" name="submit" value="ค้นหา" class="btn btn-primary">
           </form>
         </div>
         <div style="background-color:#ffffff;padding:10px;border-radius:10px;margin-top:5px;">
-          <form action="reportForm" method="post" name="stdSelect">
-            <table >
-              @if(!empty($datas))
-              <tr>
-                <td>ลำดับ</td>
-                <td>ชื่อเล่น</td>
-                <td>ชื่อจริง</td>
-                <td>นามสกุล</td>
-                <td>อายุ</td>
-                <td>ผู้ปกครอง</td>
-                <td>เบอร์โทรศัพท์</td>
-                <td>&nbsp;</td>
-              </tr>
-              @foreach($datas as $row)
-
-              <tr>
-                <td>{{$row->std_id}}</td>
-                <td>{{$row->std_nickname}}</td>
-                <td>{{$row->std_name}}</td>
-                <td>{{$row->std_lastname}}</td>
-                <td>{{$row->std_age}}</td>
-                <td>{{$row->std_parent_name}}</td>
-                <td>{{$row->std_parent_tel_1}}</td>
-                <td>
-
-                <label for="select{{$row->std_id}}" style="cursor:pointer;">เพิ่มเติม</label>
-                <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                <input type="checkbox" name="select" value="{{$row->std_id}}"
-                style="float:left;margin:5px;display:none;" onclick="this.form.submit()" id="select{{$row->std_id}}">
-                </td>
-              </form>
-              </tr>
-
+            <table>
+              @foreach($stdInfos as $row)
+              <tr style="border:none;"><td>ชื่อ</td><td>{{ $row->std_name }}</td><td>นามสกุล</td><td>{{ $row->std_lastname }}</td></tr>
+              <tr style="border:none;" collspan="4"><td>ชื่อเล่น</td><td>{{ $row->std_nickname}}</td></tr>
+              <tr style="border:none;" collspan="3">
+                <td>คอร์สเรียน</td>
+              @foreach($getCorses as $row)
+                <td>{{ $row->corse_name}}</td></tr>
               @endforeach
-              @endif
+
+              <tr ><td>ครั้งที่</td><td>วันที่เรียน</td><td>เวลาที่เรียน</td><td>เนื้อหาที่เรียน</td><td>ผู้สอน</td></tr>
+              @foreach($getClasses as $row)
+              <tr><td>{{$row->class_num}}</td><td>{{$row->class_date}}</td><td>{{$row->class_time}}</td><td>{{$row->class_subject}}</td>
+                <td>{{$row->class_teacher}}</td>
+              </tr>
+              @endforeach
+
+
             </table>
-        </div>
+            @endforeach
+          </div>
         </div>
     </div>
 </div>
