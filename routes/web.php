@@ -67,6 +67,10 @@ Route::post('classRecord','Controller@insertClassRecord');
 Route::get('reportForm', function(){
   return view('reportForm');
 });
-//Route::get('reportForm','Controller@selectReport');
 Route::post('reportForm','reportController@searchInfo');
-Route::get('reportForm','reportController@searchInfo');
+Route::get('reportForm','reportController@selectStudent');
+
+Route::get('reportStudent', function(){
+  return view('reportStudent');
+});
+Route::get('reportStudent','reportController@searchInfo');
