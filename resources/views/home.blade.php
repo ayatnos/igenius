@@ -36,7 +36,7 @@ button{background-color: lightblue;}
               <div style="float:left;width:32%;">
                 <div class="panel-heading">รายงาน</div>
               <div class="panel-body">
-                  <a href="{{ url('/reportForm')}}">CLASSTIME REPORT</a>
+                  <a href="{{ url('/reportForm')}}">STUDENT LIST</a>
               </div>
               </div>
             </div>
