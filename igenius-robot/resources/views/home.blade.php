@@ -1,4 +1,4 @@
-﻿ @extends('layouts.app')
+@extends('layouts.app')
 @section('content')
 <style>
 ul.student-info {display: inline-block;list-style:none;}
