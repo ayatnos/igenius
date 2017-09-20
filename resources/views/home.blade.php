@@ -81,12 +81,16 @@ button{background-color: lightblue;}
 <div class="panel-heading">รายงาน</div>
               <div class="panel-body">
 <<<<<<< HEAD
+<<<<<<< HEAD
  
                  <a href="{{ url('/reportForm')}}">CLASSTIME REPORT</a>
              
  </div>
 =======
                   <a href="{{ url('/reportForm')}}">CLASSTIME REPORT</a>
+=======
+                  <a href="{{ url('/reportForm')}}">STUDENT LIST</a>
+>>>>>>> 932cdfc5c308113db06246cf874e90ba7a56e078
               </div>
 >>>>>>> e931e79da319f74053855275f3a216313dbee629
               </div>
