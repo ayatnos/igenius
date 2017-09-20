@@ -13,6 +13,17 @@ tr td{padding: 10px;}
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
           <div style="background-color:#ffffff;padding:10px;border-radius:10px;">
+<<<<<<< HEAD
+          <form action="reportForm" method="post" >
+            ชื่อนักเรียน
+            <!--<input type="text" name="getId" style="display:inline;" required>-->
+            <select name="getId" id="std" style="width:200px;margin:10px;padding:3px;">
+                    <option selected>กรุณาเลือก</option>
+            @foreach($students as $row)
+
+                  <option value= "{{ $row->std_id }}">{{ $row->std_name }} {{$row->std_lastname}}({{$row->std_nickname}})  </option>
+=======
+>>>>>>> 932cdfc5c308113db06246cf874e90ba7a56e078
 
           <form action="reportForm" method="post" >
             <input type="text" name="insNickname" size="50">

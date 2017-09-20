@@ -1,18 +1,30 @@
+﻿
 @extends('layouts.app')
+
 <style>
 form input{display:inline;margin:10px;margin-bottom: 20px;}
 table{padding: 5px;}
 tr{border:1px solid #ccc;}
 tr td{padding:5px;}
 </style>
-
 @section('content')
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
+<<<<<<< HEAD
+ <form action="classRecord" method="post">
+                                                                                           
+        <div style="background-color:#ffffff;padding:10px;border-radius:10px;">
+=======
+>>>>>>> e931e79da319f74053855275f3a216313dbee629
 
     <form action="classRecord" method="post" name="search">
 
+<<<<<<< HEAD
+          <select name="classStdId" style="padding:5px; margin:10px;">
+            @foreach($studyClasses as $r)
+            <option value="{{ $r->std_id }}"> {{$r->std_name}} {{ $r->std_lastname }} ({{ $r->std_nickname }})  </option>
+=======
         <div style="background-color:#ffffff;padding:10px;border-radius:10px;">
           นักเรียน
           <select name="classStdId" style="width:500px;padding:5px; margin:10px;" onchange="this.form.submit()">
@@ -20,9 +32,17 @@ tr td{padding:5px;}
             @if(!empty($studyClasses))
             @foreach($studyClasses as $r)
             <option value="{{ $r->std_id }}">&nbsp; ({{ $r->std_nickname }})&nbsp;&nbsp; {{$r->std_name}}&nbsp; {{ $r->std_lastname }}</option>
+>>>>>>> e931e79da319f74053855275f3a216313dbee629
             @endforeach
             @endif
             </select>
+<<<<<<< HEAD
+      </div>
+      <br>
+      <div style="background-color:#ffffff;padding:10px;border-radius:10px;">
+
+         
+=======
       <input type="hidden" name="_token" value="{{ csrf_token() }}">
       <input type="hidden" name="search" value="ค้นหา" class="btn btn-primary">
     </form>
@@ -82,6 +102,7 @@ tr td{padding:5px;}
           @endif
           readonly style="width:40px;padding:5px;background-color:#ccc;border:none;">
 
+>>>>>>> e931e79da319f74053855275f3a216313dbee629
               วันที่
               <input type="date" name="classDate" required>
               เวลา
@@ -104,9 +125,13 @@ tr td{padding:5px;}
               <br><br>
               <input type="hidden" name="_token" value="{{ csrf_token() }}">
               <input type="submit" name="save" value="บันทึก" class="btn btn-primary">
+<<<<<<< HEAD
+
+=======
+>>>>>>> e931e79da319f74053855275f3a216313dbee629
             </form>
         </div>
       </div>
     </div>
   </div>
-  @endsection
+@endsection
